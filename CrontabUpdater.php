@@ -2,7 +2,6 @@
 
 namespace FDevs\Cron;
 
-use FDevs\Cron\Cron;
 use Symfony\Component\Process\Process;
 
 class CrontabUpdater

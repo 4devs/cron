@@ -32,7 +32,7 @@ class Output
 
     /**
      * @param string $outFile
-     * @param bool   $append append or rewrite log file
+     * @param bool   $append  append or rewrite log file
      *
      * @return Output
      */
@@ -53,7 +53,7 @@ class Output
 
     /**
      * @param string $errFile
-     * @param bool   $append append or rewrite log file
+     * @param bool   $append  append or rewrite log file
      *
      * @return Output
      */
