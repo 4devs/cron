@@ -1,0 +1,35 @@
+{
+    "name": "fdevs/cron",
+    "description": "Configure Cron task through PHP",
+    "keywords": [
+        "cron",
+        "crontab"
+    ],
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrey Samusev",
+            "email": "andrey_simfi@list.ru",
+            "homepage": "http://andrey.4devs.io"
+        },
+        {
+            "name": "4devs Community",
+            "homepage": "https://github.com/4devs/cron/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "suggest": {
+        "symfony/process": "use with update crontab"
+    },
+    "require-dev": {
+        "symfony/process": "~2.8|~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FDevs\\Cron\\": ""
+        }
+    }
+}
