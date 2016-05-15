@@ -79,8 +79,8 @@ class CrontabUpdater
     {
         $keyBegin = sprintf(self::KEY_BEGIN, $this->key);
         $keyEnd = sprintf(self::KEY_END, $this->key);
-        $pattern = '/\r?\n'.sprintf(self::KEY_BEGIN, $this->key).PHP_EOL.'.*?'.sprintf(self::KEY_END, $this->key).'/s';
-        $cron = PHP_EOL.$keyBegin.PHP_EOL.$cron.PHP_EOL.$keyEnd.PHP_EOL;
+        $pattern = '/\r?\n'.$keyBegin.PHP_EOL.'.*?'.$keyEnd.'/s';
+        $cron = PHP_EOL.$keyBegin.PHP_EOL.$cron.PHP_EOL.$keyEnd;
 
         $replacedContent = preg_replace($pattern, $cron, $content, -1, $count);
 
