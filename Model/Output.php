@@ -7,19 +7,35 @@ class Output
     /**
      * @var string
      */
-    protected $outFile = '> /dev/null';
+    protected $outFile = '/dev/null';
+
+    /**
+     * @var bool
+     */
+    protected $appendOutFile = false;
 
     /**
      * @var string
      */
-    protected $errFile = '2> /dev/null';
+    protected $errFile = '/dev/null';
+
+    /**
+     * @var bool
+     */
+    protected $appendErrFile = false;
 
     /**
      * {@inheritdoc}
      */
     public function __toString()
     {
-        return $this->outFile.' '.$this->errFile;
+        return sprintf(
+            '%s %s %s %s',
+            $this->appendOutFile ? '>>' : '>',
+            $this->outFile,
+            $this->appendErrFile ? '2>>' : '2>',
+            $this->errFile
+        );
     }
 
     /**
@@ -27,7 +43,7 @@ class Output
      */
     public function getOutFile()
     {
-        return trim(strstr(' ', $this->outFile));
+        return $this->outFile;
     }
 
     /**
@@ -38,7 +54,8 @@ class Output
      */
     public function setOutFile($outFile, $append = true)
     {
-        $this->outFile = ($append ? '>> ' : '> ').$outFile;
+        $this->outFile = $outFile;
+        $this->appendOutFile = $append;
 
         return $this;
     }
@@ -48,7 +65,7 @@ class Output
      */
     public function getErrFile()
     {
-        return trim(strstr(' ', $this->errFile));
+        return $this->errFile;
     }
 
     /**
@@ -59,7 +76,8 @@ class Output
      */
     public function setErrFile($errFile, $append = true)
     {
-        $this->errFile = ($append ? '>> ' : '> ').$errFile;
+        $this->errFile = $errFile;
+        $this->appendErrFile = $append;
 
         return $this;
     }
